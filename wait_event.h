@@ -9,7 +9,6 @@
 #include <wil/com.h>
 #include <wrl.h>
 
-namespace WebView2Utils {
 // Class to check if methods are called on the same thread where the object is
 // created.
 class SequenceCheckerImpl {
@@ -181,9 +180,6 @@ private:
   EventRegistrationToken token_ = {};
 };
 
-} // namespace WebView2Utils
-
-namespace WebView2Utils {
 // Function to wait for a WebView event and return its result.
 template <class Event>
 ArgsPtr<Event> WaitEvent(
@@ -191,4 +187,3 @@ ArgsPtr<Event> WaitEvent(
     const std::function<void(typename Event::Args *)> &callback = nullptr) {
   return EventResultHolder<Event>(sender, callback).Get();
 }
-} // namespace WebView2Utils
